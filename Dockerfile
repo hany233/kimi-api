@@ -14,7 +14,7 @@ COPY --from=BUILD_IMAGE /app/dist ./dist
 COPY --from=BUILD_IMAGE /app/node_modules ./node_modules
 
 WORKDIR /app
+ENV PORT 3000
+EXPOSE $PORT
 
-EXPOSE 8000
-
-CMD ["npm", "start"]
+CMD npm run start -- -p $PORT
